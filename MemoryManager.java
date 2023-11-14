@@ -1,18 +1,20 @@
 import java.util.LinkedList;
+import java.util.List;
 
 public class MemoryManager {
-    private LinkedList<MemoryPartition> memory;
+    private List<MemoryPartition> memory;
+    private int totalSize;
 
     public MemoryManager(int size) {
         memory = new LinkedList<>();
-        for (int i = 0; i < size; i++) {
-            memory.add(new MemoryPartition());
-        }
+        this.totalSize = size;
+        memory.add(new MemoryPartition("-", size)); // Inicializa a memória como livre
     }
 
+    // Best Fit
     public boolean bestFit(char processId, int processSize){
         int bestIndex = -1;
-        int bestFitDifference = Integer.MAX_VALUE;
+        int bestSize = Integer.MAX_VALUE;
         int currentLength = 0;
         int startIndex = 0;
     
@@ -25,8 +27,8 @@ public class MemoryManager {
             } else {
                 if (currentLength >= processSize) {
                     int currentDifference = currentLength - processSize;
-                    if (currentDifference < bestFitDifference) {
-                        bestFitDifference = currentDifference;
+                    if (currentDifference < bestSize) {
+                        bestSize = currentDifference;
                         bestIndex = startIndex;
                     }
                 }
@@ -37,7 +39,7 @@ public class MemoryManager {
         // Considerando o caso em que o último bloco na memória é um espaço vazio:
         if (currentLength >= processSize) {
             int currentDifference = currentLength - processSize;
-            if (currentDifference < bestFitDifference) {
+            if (currentDifference < bestSize) {
                 bestIndex = startIndex;
             }
         }
@@ -52,7 +54,7 @@ public class MemoryManager {
         return false;  // Não encontrou um espaço adequado para alocação.
         }
     
-
+    // First Fit
     public boolean firstFit(char processId, int processSize) {
             int currentLength = 0;
             int startIndex = -1;
@@ -80,8 +82,16 @@ public class MemoryManager {
                 }
                 return true;
             }
-        
             return false;  // Não encontrou um espaço adequado para alocação.
-       
-    }
+        }
+        
+        public void deallocate(String processId) {
+            // Implementar lógica de desalocação
+        }
+    
+        public void displayMemory() {
+            // Implementar lógica para exibir o estado atual da memória
+        }
+    
+
 }        
