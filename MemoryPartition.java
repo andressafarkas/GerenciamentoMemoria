@@ -1,26 +1,33 @@
 public class MemoryPartition {
-    private char processId;
+    private Process process;
     private boolean isOccupied;
     private int size;
 
-
-    public MemoryPartition(String processId, int size) {
-        this.processId = '-';  // '-' indica que nenhuma alocação foi feita ainda.
-        this.isOccupied = false;
+    public MemoryPartition(Process process, boolean isOccupied, int size) {
+        this.process = process; 
+        this.isOccupied = isOccupied;
         this.size = size;
     }
 
-    public void allocate(char processId) {
-        this.processId = processId;
+    public void allocate(Process process) {
+        this.process = process;
         this.isOccupied = true;
     }
 
-    public void free() {
-        this.processId = '-';
+    public void deallocate() {
+        this.process = null;
         this.isOccupied = false;
     }
 
     public boolean isOccupied() {
         return isOccupied;
+    }
+
+    public Process getProcess() {
+        return this.process;
+    }
+
+     public int getSize() {
+        return this.size;
     }
 }
