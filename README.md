@@ -1,4 +1,7 @@
 # Gerenciamento de Memória - 2023/2
+### ** Alunos: Andressa Farkas, Angelo Corte, Felipe Tasoniero, Luana Thomas **
+
+## Objetivos
 
 Este projeto tem como objetivo explorar e analisar diferentes políticas de alocação de espaços em uma memório.
 
@@ -56,6 +59,12 @@ OUT(D)           |8|
 ```
 
 onde a primeira coluna indica as etadas de alocação e liberação de memória indicadas no arquivo de configuração, e a segunda coluna indica o espaço livre na memória a cada passo de execução.
+
+Caso não seja possível alocar memória em alguma etapa, a aplicação irá apresentar a seguinte informação:
+
+```
+ESPAÇO INSUFICIENTE DE MEMÓRIA
+```
 
 \*\* Caso deseje realizar seus próprios testes, siga os passos indicados na seção 'Configuração para Testes'.
 
