@@ -20,7 +20,7 @@ jobs:
       - name: Compile
         run: javac ./*.java
       - name: Package JAR
-        run: jar cvf GerenciamentoMemoria.jar .
+        run: jar cfe GerenciamentoMemoria.jar App ./*.class
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
