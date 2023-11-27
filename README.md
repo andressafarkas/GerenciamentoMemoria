@@ -84,5 +84,5 @@ Caso deseje realizar seu próprio teste, atualize o 'arquivo_teste.txt' de acord
 
 ## Requerimentos
 
-- Java JDK 11
+- Java JDK 8
 - Windows ou Ubuntu
